@@ -485,12 +485,13 @@ document.addEventListener('DOMContentLoaded', () => {
       const dx = currentX - startX;
       const dy = currentY - startY;
       
-      if (Math.abs(dx) > 3 || Math.abs(dy) > 3) {
+      // On mobile, if we've moved enough horizontally/vertically, assume it's a drag
+      if (!isDragging && (Math.abs(dx) > 10 || Math.abs(dy) > 10)) {
         isDragging = true;
       }
 
       if (isDragging) {
-        e.preventDefault(); // prevent scrolling while dragging
+        if (e.cancelable) e.preventDefault(); // prevent scrolling while dragging
         polaroid.style.transform = `translate(${dx + initialX}px, ${dy + initialY}px) rotate(0deg)`;
       }
     };
@@ -806,6 +807,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const cx = e.clientX || e.touches[0].clientX;
         const cy = e.clientY || e.touches[0].clientY;
         const dx = cx - startX, dy = cy - startY;
+        
+        // Prevent default only if we are actually dragging enough
+        if (Math.abs(dx) > 5 || Math.abs(dy) > 5) {
+            if (e.cancelable) e.preventDefault();
+        }
+        
         const tilt = dx * 0.08;
         card.style.transform = `rotate(${tiltInit + tilt}deg) translate(${dx}px, ${dy}px)`;
         card.style.opacity = Math.max(0.4, 1 - Math.abs(dx) / 300);
