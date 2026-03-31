@@ -656,7 +656,7 @@ document.addEventListener('DOMContentLoaded', () => {
         blowCandleBtn.style.display = 'none';
         fallbackBlowBtn.style.display = 'none';
         
-        cakeMessage.innerHTML = "Have the best day ever, Reet, and live beautifully!<br>You are a truly great soul, and I pray you always remain blessed.<br>May this upcoming year be as sweet and magical as you are! 🍰✨";
+        cakeMessage.innerHTML = "Have the best day ever, Reet, and live beautifully!<br>You are a truly great soul, and I pray you always remain blessed.<br><br>Praying to Krishna and the Heavens to have all your wishes granted,<br>including the most beautiful wish of all—YOU.<br><br>May this upcoming year be as sweet and magical as you are! 🍰✨";
         cakeMessage.classList.remove('hidden');
         cakeMessage.style.display = 'inline-block';
         setTimeout(() => cakeMessage.classList.add('show-msg'), 50);

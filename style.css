@@ -144,6 +144,29 @@ button {
   display: none !important;
 }
 
+/* Opening Video Styling */
+.opening-video-container {
+  width: 100%;
+  max-width: 320px;
+  margin: 1.5rem auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(255, 105, 180, 0.25);
+  border: 5px solid white;
+  background: white;
+  transform: rotate(-1deg);
+  transition: transform 0.3s ease;
+}
+.opening-video-container:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+.opening-video {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+
 /* Floating Hearts / Particles base */
 .particles {
   position: fixed;
@@ -746,32 +769,33 @@ body.lights-dimmed::after {
 .cake-container {
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin: 3rem 0;
+  align-items: flex-end;
+  margin: 4rem 0;
   perspective: 1000px;
   position: relative;
-  height: 300px;
+  height: 400px; /* Increased for better visibility */
 }
+
 
 /* Avatar Feature */
 .ghibli-avatar-container {
   position: absolute;
-  left: 0;
-  bottom: 0px;
+  left: 10%;
+  bottom: 20px;
   z-index: 50;
-  transition: transform 1s ease-out;
-  transform: translateX(-200px); /* Hidden offscreen */
+  transition: transform 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform: translateX(-300px); /* Hidden further offscreen */
 }
 .ghibli-avatar-container.slide-in {
-  transform: translateX(0); /* Slide into view */
+  transform: translateX(0);
 }
 .ghibli-avatar-img {
-  width: 140px;
-  height: 140px;
+  width: 180px; /* Bigger as requested */
+  height: 180px;
   border-radius: 50%;
   object-fit: cover;
-  border: 4px solid white;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  border: 6px solid white;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.25);
 }
 .wind-blow {
   position: absolute;
@@ -786,17 +810,17 @@ body.lights-dimmed::after {
 }
 @keyframes blowWind {
   0% { opacity: 0; transform: translate(0, 0) scale(0.5); }
-  20% { opacity: 1; transform: translate(30px, -20px) scale(0.8); }
-  80% { opacity: 1; transform: translate(90px, -60px) scale(1.5); }
-  100% { opacity: 0; transform: translate(120px, -80px) scale(2); }
+  20% { opacity: 1; transform: translate(40px, -10px) scale(0.8); }
+  80% { opacity: 1; transform: translate(140px, -40px) scale(1.5); } /* Adjusted to hit candle flame */
+  100% { opacity: 0; transform: translate(180px, -60px) scale(2); }
 }
 
 /* The Restored Premium CSS Cake */
 .cake {
   position: relative;
-  width: 250px;
-  height: 200px;
-  margin-left: 50px; /* offset slightly to make room for avatar */
+  width: 280px; /* Slightly larger */
+  height: 220px;
+  margin-left: 80px; /* Shifted to clear larger avatar */
 }
 /* A gorgeous cake stand */
 .cake::before {
@@ -1208,8 +1232,11 @@ body.cake-focus-mode .candle-focus-overlay {
   .film-reel-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .film-frame { aspect-ratio: 9/16; } 
   
-  .memory-card { width: 240px; height: 300px; }
-  .cake-container { transform: scale(0.7); margin-bottom: -40px; }
+  .memory-card { width: 240px; height: 320px; }
+  .cake-container { transform: scale(0.65); margin-bottom: -60px; height: 350px; }
+  .ghibli-avatar-img { width: 150px; height: 150px; }
+  .cake { margin-left: 40px; }
+
 }
 
 @media (max-width: 400px) {
