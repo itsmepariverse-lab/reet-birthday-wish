@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Reet 💖</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Music player -->
+  <audio id="bgMusic" loop preload="auto">
+      <!-- Soulful Hindi track (Falak Tak) -->
+      <source src="assets/falak_tak.mp3" type="audio/mpeg">
+  </audio>
+  <button id="musicToggle" class="music-btn glass">
+      <span class="icon">🎵</span>
+      <span class="text">Play Music</span>
+  </button>
+
+  
+  <!-- Guided Onboarding Modal -->
+  <div id="welcomeModal" class="modal-overlay hidden" style="display: none;">
+    <div class="modal-content glass-card text-center slide-up">
+      <h2 class="cursive text-pink mb-3" style="font-size: 2.5rem;">Welcome to your world, Reet 🌸</h2>
+      <p class="mb-4 text-purple" style="font-size: 1.2rem; line-height: 1.8;">
+        This entire experience was made just for you. ✨<br><br>
+        🎵 <strong>Music</strong> plays in the top right — sit back and let it set the mood.<br><br>
+        📸 <strong>Polaroids</strong> — find the gallery and <strong>flip them</strong> for a secret message!<br><br>
+        🃏 <strong>Memory Stack</strong> — drag and fling the photo cards to reveal more memories.<br><br>
+        🎬 <strong>Film Reel</strong> — hover over any video frame to watch it come alive.<br><br>
+        🎂 Keep scrolling all the way to the end for one last magical surprise...
+      </p>
+      <button id="closeModalBtn" class="primary-btn pulse">I'm Ready ❤️</button>
+    </div>
+  </div>
+
+  <!-- Ethereal Mesh Canvas Background -->
+  <canvas id="etherealCanvas"></canvas>
+
+  <!-- Opening -->
+  <section id="opening" class="section fullscreen">
+    <div class="content glass-card fade-in">
+      <h1 class="cursive title-pop">Hey Reet …<br><span class="subtext">I made something for you 💫</span></h1>
+      <button id="startJourneyBtn" class="primary-btn mt-4 shadow-btn">Start the Journey ❤️</button>
+    </div>
+  </section>
+
+  <!-- Story -->
+  <section id="story" class="section hidden scroll-reveal">
+    <div class="content text-center glass-card">
+      <p class="story-text slide-up delay-1">Once upon a time… someone incredibly special was born 🌸</p>
+      <p class="story-text slide-up delay-2">She grew into someone kind, cute, and unforgettable ✨</p>
+      <p class="story-text slide-up delay-3">And today… it’s her special day 🎂</p>
+    </div>
+  </section>
+
+  <!-- Qualities Section -->
+  <section id="qualities" class="section hidden scroll-reveal" style="display: none;">
+    <div class="content text-center">
+      <h2 class="cursive title-anim mb-4 text-pink">You are...</h2>
+      <div class="traits-grid">
+        <div class="trait-card glass-card hover-lift delay-1">
+          <div class="icon-wrap">
+            <svg class="custom-icon" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-pink)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
+            </svg>
+          </div>
+          <div class="trait-name">Radiant</div>
+        </div>
+        <div class="trait-card glass-card hover-lift delay-2">
+          <div class="icon-wrap">
+            <svg class="custom-icon" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-purple)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5l6.74-6.76z" />
+              <line x1="16" y1="8" x2="2" y2="22" />
+              <line x1="17.5" y1="15" x2="9" y2="15" />
+            </svg>
+          </div>
+          <div class="trait-name">Graceful</div>
+        </div>
+        <div class="trait-card glass-card hover-lift delay-3">
+          <div class="icon-wrap">
+            <svg class="custom-icon" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-pink)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.8 4.6a5.5 5.5 0 0 0-7.7 0l-1.1 1-1.1-1a5.5 5.5 0 0 0-7.8 7.8l1 1 7.9 7.9 7.9-7.9 1-1a5.5 5.5 0 0 0 0-7.8z" />
+            </svg>
+          </div>
+          <div class="trait-name">Charming</div>
+        </div>
+        <div class="trait-card glass-card hover-lift delay-4">
+          <div class="icon-wrap">
+             <svg class="custom-icon" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-purple)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+            </svg>
+          </div>
+          <div class="trait-name">Inspiring</div>
+        </div>
+        <div class="trait-card glass-card hover-lift delay-5">
+          <div class="icon-wrap">
+             <svg class="custom-icon" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-pink)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="6 3 18 3 22 9 12 22 2 9" />
+              <line x1="6" y1="3" x2="12" y2="22" />
+              <line x1="18" y1="3" x2="12" y2="22" />
+              <line x1="2" y1="9" x2="22" y2="9" />
+            </svg>
+          </div>
+          <div class="trait-name">Elegant</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="memories" class="section hidden scroll-reveal" style="display: none;">
+    <div class="content glass-card">
+      <h2 class="cursive text-purple text-center mb-4">A Glimpse of Her Magic 🌸</h2>
+      <div class="gallery-grid">
+      <div class="gallery-page active" id="page-1" >
+        <div class="gallery-item"><div class="flip-inner"><div class="front"><video src="assets/beauty.mp4" autoplay loop muted playsinline></video></div><div class="back"><span>You shine brighter than the stars ✨</span></div></div></div>
+        <div class="gallery-item"><div class="flip-inner"><div class="front"><img src="assets/defaulte_as_awesome_1518351663_highlight17914952296063020.jpg" alt="Memory" loading="lazy"></div><div class="back"><span>Absolutely gorgeous 🌷</span></div></div></div>
+        <div class="gallery-item"><div class="flip-inner"><div class="front"><video src="assets/defaulte_as_awesome_1518836798_highlight17914952296063020.mp4" autoplay loop muted playsinline></video></div><div class="back"><span>That smile melts hearts! 💖</span></div></div></div>
+        <div class="gallery-item"><div class="flip-inner"><div class="front"><img src="assets/defaulte_as_awesome_1574970559_2187334048938431123_6784736164.jpg" alt="Memory" loading="lazy"></div><div class="back"><span>An unforgettable moment ✨</span></div></div></div>
+        <div class="gallery-item"><div class="flip-inner"><div class="front"><video src="assets/defaulte_as_awesome_1686724776_3124796077811810264_6784736164.mp4" autoplay loop muted playsinline></video></div><div class="back"><span>Always glowing like the sun ☀️</span></div></div></div>
+        <div class="gallery-item"><div class="flip-inner"><div class="front"><video src="assets/Falak tak - January 31st 2025.mp4" autoplay loop muted playsinline></video></div><div class="back"><span>Beautiful inside and out 💫</span></div></div></div>
+        <div class="gallery-item"><div class="flip-inner"><div class="front"><img src="assets/IMG_20250401_202059.jpg" alt="Memory" loading="lazy"></div><div class="back"><span>Pure joy in a single frame 🎶</span></div></div></div>
+        <div class="gallery-item"><div class="flip-inner"><div class="front"><img src="assets/Makeup look in Seems di wedding- March 7th 2023.webp" alt="Memory" loading="lazy"></div><div class="back"><span>The best vibes only 🌸</span></div></div></div>
+        <div class="gallery-item"><div class="flip-inner"><div class="front"><video src="assets/meet me.mp4" autoplay loop muted playsinline></video></div><div class="back"><span>Such a soft, beautiful aura 🤍</span></div></div></div>
+        <div class="gallery-item"><div class="flip-inner"><div class="front"><img src="assets/Snapchat-1951483369.jpg" alt="Memory" loading="lazy"></div><div class="back"><span>Simply perfect. 🦋</span></div></div></div>
+        <div class="gallery-item"><div class="flip-inner"><div class="front"><img src="assets/Status (29).jpg" alt="Memory" loading="lazy"></div><div class="back"><span>A beautiful memory worth keeping! 🥰</span></div></div></div>
+        <div class="gallery-item"><div class="flip-inner"><div class="front"><video src="assets/With Bindi haayeee - January 31st 2025.mp4" autoplay loop muted playsinline></video></div><div class="back"><span>Effortlessly charming 🌹</span></div></div></div>
+        <div class="gallery-item"><div class="flip-inner"><div class="front"><img src="Birthday Bash/1059dc9d2b0c490e819e752ead0ced7e.jpg" alt="Memory" loading="lazy"></div><div class="back"><span>Your presence is a true gift 🎁</span></div></div></div>
+        <div class="gallery-item"><div class="flip-inner"><div class="front"><video src="Birthday Bash/29688e7d94344f1fb00e2d79d56e9d7d.mp4" autoplay loop muted playsinline></video></div><div class="back"><span>Iconic as ever ✨</span></div></div></div>
+        <div class="gallery-item"><div class="flip-inner"><div class="front"><video src="Birthday Bash/2ca6c648353649f8b68f66c95f6c229a.mp4" autoplay loop muted playsinline></video></div><div class="back"><span>My favorite aesthetic 💖</span></div></div></div>
+      </div>
+      <div class="gallery-page hidden" id="page-2" style="display:none;">
+        <div class="gallery-item"><div class="flip-inner"><div class="front"><img src="Birthday Bash/2da3c70a7726427b937bf0df12f8c7d3.jpg" alt="Memory" loading="lazy"></div><div class="back"><span>Breathtaking, truly. 🌟</span></div></div></div>
+        <div class="gallery-item"><div class="flip-inner"><div class="front"><img src="Birthday Bash/2f5a5cb6eb56476b8f249efb5a60bb5d.jpg" alt="Memory" loading="lazy"></div><div class="back"><span>Graceful like a swan 🦢</span></div></div></div>
+        <div class="gallery-item"><div class="flip-inner"><div class="front"><video src="Birthday Bash/3fa626af5e9b4bdebb5add02c51c961b.mp4" autoplay loop muted playsinline></video></div><div class="back"><span>A tiny glimpse of your magic ✨</span></div></div></div>
+        <div class="gallery-item"><div class="flip-inner"><div class="front"><video src="Birthday Bash/419af537ce2f405e9bf8f6f6364a9628.mp4" autoplay loop muted playsinline></video></div><div class="back"><span>Absolutely radiant 🌺</span></div></div></div>
+        <div class="gallery-item"><div class="flip-inner"><div class="front"><video src="Birthday Bash/49288b93055848b59c5a0dda1e83b3f1.mp4" autoplay loop muted playsinline></video></div><div class="back"><span>You make everything better 🌈</span></div></div></div>
+        <div class="gallery-item"><div class="flip-inner"><div class="front"><video src="Birthday Bash/51a7edf15c244d38bbc816722e7bf157.mp4" autoplay loop muted playsinline style="object-fit: contain; background: #000;"></video></div><div class="back"><span>This deserves to be framed 🖼️</span></div></div></div>
+        <div class="gallery-item"><div class="flip-inner"><div class="front"><video src="Birthday Bash/563cc13722f34d32a89db0835bcce6a0.mp4" autoplay loop muted playsinline></video></div><div class="back"><span>The most comforting smile 🌻</span></div></div></div>
+        <div class="gallery-item"><div class="flip-inner"><div class="front"><video src="Birthday Bash/593a7fd9a1af4fcb8c8d5cb4d3d2efe1.mp4" autoplay loop muted playsinline></video></div><div class="back"><span>So full of life! 💃</span></div></div></div>
+        <div class="gallery-item"><div class="flip-inner"><div class="front"><img src="Birthday Bash/5d2fa35b96b840c282fa20d7aaf002e2.jpg" alt="Memory" loading="lazy" style="transform: rotate(180deg);"></div><div class="back"><span>A vibe completely unmatched ⚡</span></div></div></div>
+        <div class="gallery-item"><div class="flip-inner"><div class="front"><video src="Birthday Bash/61afea2320db467b83dfe260ff51df0c.mp4" autoplay loop muted playsinline></video></div><div class="back"><span>Flawless. Just flawless. 👑</span></div></div></div>
+        <div class="gallery-item"><div class="flip-inner"><div class="front"><video src="Birthday Bash/632e89ee537d429f84f5abde5e09547d.mp4" autoplay loop muted playsinline style="object-fit: contain; background: #000;"></video></div><div class="back"><span>Everything about this is perfect ❤️</span></div></div></div>
+        <div class="gallery-item"><div class="flip-inner"><div class="front"><video src="Birthday Bash/6a1f5b619e1f43a4bb4b4b5f3fd64ad8.mp4" autoplay loop muted playsinline></video></div><div class="back"><span>Never lose that spark 🔥</span></div></div></div>
+        <div class="gallery-item"><div class="flip-inner"><div class="front"><video src="Birthday Bash/6cdde3db85ff498a9f5c60085c3e38a8.mp4" autoplay loop muted playsinline></video></div><div class="back"><span>Cutest human alive 🥺</span></div></div></div>
+        <div class="gallery-item"><div class="flip-inner"><div class="front"><video src="Birthday Bash/7302e5a8cb934d62830a256c9ecb1acb.mp4" autoplay loop muted playsinline></video></div><div class="back"><span>You own the moment 📸</span></div></div></div>
+        <div class="gallery-item"><div class="flip-inner"><div class="front"><img src="Birthday Bash/8811b389c9da4ec184bfda9600847542.jpg" alt="Memory" loading="lazy"></div><div class="back"><span>A literal angel 👼</span></div></div></div>
+      </div>
+      <div class="gallery-page hidden" id="page-3" style="display:none;">
+        <div class="gallery-item"><div class="flip-inner"><div class="front"><video src="Birthday Bash/8e7ce487162b4262b897b448722aba82.mp4" autoplay loop muted playsinline></video></div><div class="back"><span>Elegance personified 👗</span></div></div></div>
+        <div class="gallery-item"><div class="flip-inner"><div class="front"><img src="Birthday Bash/9145c1b7121e4686afb1f65ca4b074cb.jpg" alt="Memory" loading="lazy"></div><div class="back"><span>You make me smile just looking at this 😊</span></div></div></div>
+        <div class="gallery-item"><div class="flip-inner"><div class="front"><video src="Birthday Bash/9d6a95242b7f4542b1a8b23580ab4997.mp4" autoplay loop muted playsinline></video></div><div class="back"><span>Precious beyond words 💍</span></div></div></div>
+        <div class="gallery-item"><div class="flip-inner"><div class="front"><video src="Birthday Bash/9d9c755d7cbb4a978dd8f5f15eea98d6.mp4" autoplay loop muted playsinline></video></div><div class="back"><span>The world is better with you in it 🌍</span></div></div></div>
+        <div class="gallery-item"><div class="flip-inner"><div class="front"><video src="Birthday Bash/aea3a88a7e9b40adb379e0970bfe5bfa.mp4" autoplay loop muted playsinline></video></div><div class="back"><span>I could look at this all day 💫</span></div></div></div>
+        <div class="gallery-item"><div class="flip-inner"><div class="front"><img src="Birthday Bash/b4c0af68e7b140c394ef09996b79085c.jpg" alt="Memory" loading="lazy"></div><div class="back"><span>A true masterpiece 🎨</span></div></div></div>
+        <div class="gallery-item"><div class="flip-inner"><div class="front"><video src="Birthday Bash/be6097241b8940b4850b421c6fd0c9dd.mp4" autoplay loop muted playsinline></video></div><div class="back"><span>You light up the dark 🌙</span></div></div></div>
+        <div class="gallery-item"><div class="flip-inner"><div class="front"><img src="Birthday Bash/d07d9d61d5fb48658d19e8e532f0be10.jpg" alt="Memory" loading="lazy"></div><div class="back"><span>Radiating pure happiness! 😁</span></div></div></div>
+        <div class="gallery-item"><div class="flip-inner"><div class="front"><video src="Birthday Bash/d97dda79ad15482382fb20512f0e71ab.mp4" autoplay loop muted playsinline></video></div><div class="back"><span>Can we pause time here? ⏳</span></div></div></div>
+        <div class="gallery-item"><div class="flip-inner"><div class="front"><img src="Birthday Bash/e2b08b6fe6dd419c905e527f50ed56cb.jpg" alt="Memory" loading="lazy"></div><div class="back"><span>You carry so much grace 🌸</span></div></div></div>
+        <div class="gallery-item"><div class="flip-inner"><div class="front"><video src="Birthday Bash/e2bc5b0e9c47457e8b85477adc6fecb4.mp4" autoplay loop muted playsinline></video></div><div class="back"><span>It’s the little moments that matter 💫</span></div></div></div>
+        <div class="gallery-item"><div class="flip-inner"><div class="front"><video src="Birthday Bash/f7c2871374e440a2b859814da7ab79e3.mp4" autoplay loop muted playsinline></video></div><div class="back"><span>A true blessing 🙏</span></div></div></div>
+        <div class="gallery-item"><div class="flip-inner"><div class="front"><video src="Birthday Bash/fcd2dc159244480a99349ca2fd54d02a.mp4" autoplay loop muted playsinline></video></div><div class="back"><span>Always the main character 🎭</span></div></div></div>
+        <div class="gallery-item"><div class="flip-inner"><div class="front"><video src="Birthday Bash/fddb619cd9204228bb242d550afaa867.mp4" autoplay loop muted playsinline></video></div><div class="back"><span>You are literally magic. 🪄</span></div></div></div>
+        <div class="gallery-item"><div class="flip-inner"><div class="front"><video src="Birthday Bash/VID-20260217-WA0008.mp4" autoplay loop muted playsinline></video></div><div class="back"><span>So deeply, wonderfully you. 💖</span></div></div></div>
+      </div>
+
+      <div class="gallery-pagination mt-4 text-center">
+        <button id="prevPage" class="primary-btn shadow-btn" style="display:none; margin-right: 10px;">← Prev</button>
+        <span id="pageIndicator" class="cursive text-purple fs-medium mx-3" style="display: inline-block; margin: 0 15px;">Page 1 of 3</span>
+        <button id="nextPage" class="primary-btn shadow-btn" style="margin-left: 10px;">Next →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Memory Stack Section -->
+  <section id="memory-stack" class="section hidden scroll-reveal" style="display: none;">
+    <div class="content text-center">
+      <h2 class="cursive text-pink mb-4" style="font-size: 3rem;">A Few of My Favourite Moments 📸</h2>
+      <p class="text-purple mb-5" style="font-size: 1.2rem;">Swipe or drag each photo to discover the next memory ✨</p>
+      <div id="memoryStack" class="memory-stack-container">
+        <!-- Cards injected by JS -->
+      </div>
+      <p class="text-purple mt-4" style="font-size: 1rem; opacity: 0.7;">Drag to swipe away 👆</p>
+    </div>
+  </section>
+
+  <!-- Cinematic Film Reel -->
+  <section id="film-reel" class="section hidden scroll-reveal" style="display: none;">
+    <div class="content text-center">
+      <h2 class="cursive text-pink mb-4" style="font-size: 3rem;">Her Moments in Motion 🎬</h2>
+      <p class="text-purple mb-5" style="font-size: 1.2rem;">Some memories are too alive for photos ✨</p>
+      <div class="film-reel-grid">
+        <div class="film-frame">
+          <video src="assets/beauty.mp4" loop playsinline class="film-video"></video>
+          <div class="film-caption cursive">Natural Beauty ✨</div>
+        </div>
+        <div class="film-frame">
+          <video src="assets/meet me.mp4" loop playsinline class="film-video"></video>
+          <div class="film-caption cursive">She's Everything 💖</div>
+        </div>
+        <div class="film-frame">
+          <video src="assets/With Bindi haayeee - January 31st 2025.mp4" loop playsinline class="film-video"></video>
+          <div class="film-caption cursive">That Bindi Glow 🌸</div>
+        </div>
+        <div class="film-frame">
+          <video src="assets/S3.mp4" loop playsinline class="film-video"></video>
+          <div class="film-caption cursive">Unstoppable 🔥</div>
+        </div>
+        <div class="film-frame">
+          <video src="assets/defaulte_as_awesome_1677129353_3044302817321032979_6784736164.mp4" loop playsinline class="film-video"></video>
+          <div class="film-caption cursive">That Look 😍</div>
+        </div>
+        <div class="film-frame">
+          <video src="assets/defaulte_as_awesome_1686724776_3124796077811810264_6784736164.mp4" loop playsinline class="film-video"></video>
+          <div class="film-caption cursive">Pure Charisma 👑</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Surprise Section -->
+  <section id="surprises" class="section hidden scroll-reveal">
+    <div class="content text-center glass-card">
+      <h2 class="cursive text-purple mb-4">Click for a surprise...</h2>
+      <div class="surprise-container">
+        <button class="surprise-btn primary-btn shadow-btn" data-msg="You make people smile without trying 😊">Open Gift 🎁</button>
+        <button class="surprise-btn primary-btn shadow-btn" data-msg="You’re secretly the cutest human alive 😌">Another One 👀</button>
+        <button class="surprise-btn primary-btn shadow-btn" data-msg="Talking to you makes everything better 💖">One More 💫</button>
+        <button class="surprise-btn final primary-btn shadow-btn" id="finalSurpriseBtn" data-msg="A special message awaits you...">Final Surprise 💝</button>
+      </div>
+      <div id="surpriseMsg" class="msg-box hidden"></div>
+    </div>
+  </section>
+
+  <!-- Reasons Why You're Amazing -->
+  <section id="reasons" class="section hidden scroll-reveal" style="display: none;">
+    <div class="content glass-card">
+      <h2 class="cursive text-pink text-center mb-3">Reasons Why You're Amazing</h2>
+      <div class="reasons-scroller">
+        <div id="reasonsList" class="reasons-track">
+          <!-- populated via JS -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Emotional Letter Section -->
+  <section id="letter" class="section hidden scroll-reveal" style="display: none;">
+    <div class="content letter-card glass">
+      <p class="cursive fs-large text-pink pb-2">Hey Reet 💖</p>
+      <div class="letter-body">
+        <div id="typewriter-text" class="typewriter-text cursive"></div>
+      </div>
+      <p class="cursive fs-medium mt-4 text-purple text-right">Happy Birthday 🎂💖</p>
+    </div>
+    <div class="text-center mt-5">
+      <button id="finaleBtn" class="primary-btn shadow-btn pulse">See the magic ✨</button>
+    </div>
+  </section>
+
+  <!-- Grand Finale -->
+  <section id="finale" class="section hidden" style="display: none;">
+    <div class="content glass-card text-center finale-card">
+      <div class="finale-header">
+        <!-- SVG Crown / Sparkle -->
+        <svg class="finale-icon drop-shadow" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width: 48px; height: 48px; margin-bottom: 20px;">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="var(--color-text-pink)" stroke="var(--color-text-pink)" opacity="0.8"/>
+        </svg>
+        <h1 class="cursive text-white drop-shadow">Happy Birthday,<br>Reet</h1>
+      </div>
+      
+      <!-- Special Centerpiece Video — trimmed best portion -->
+      <div class="finale-media-frame" style="position: relative; border-radius: 24px; overflow: hidden; max-width: 800px; margin: 0 auto; box-shadow: 0 30px 80px rgba(255,105,180,0.4); aspect-ratio: 16/9;">
+        <video
+          id="finaleCenterpieceVideo"
+          src="last video message/1.mp4"
+          autoplay loop muted playsinline
+          class="centerpiece-video"
+          style="width:100%; display:block; border-radius: 24px;"
+        ></video>
+        <!-- Soft vignette overlay -->
+        <div style="position:absolute; inset:0; border-radius:24px; background: radial-gradient(ellipse at center, transparent 50%, rgba(255,182,210,0.15) 100%); pointer-events:none;"></div>
+      </div>
+      
+      
+      <p class="mt-4 cursive" style="font-size: 1.5rem; color: var(--color-text-purple);">Here's to a year as incredibly beautiful as you are. ✨</p>
+      <div class="text-center mt-5">
+        <button id="finalCakeTrigger" class="primary-btn shadow-btn pulse">One Last Thing... 🎂</button>
+      </div>
+
+    </div>
+  </section>
+
+  
+  <!-- Virtual Interactive Cake Section (Moved to true end) -->
+  <section id="virtual-cake" class="section hidden" style="display: none;">
+    <div class="content text-center glass-card" style="padding: 4rem 2rem; position: relative;">
+      <h2 class="cursive text-pink mb-4" style="font-size: 3.5rem;">Make a Wish 🎂</h2>
+      <p class="text-purple mb-5" style="font-size: 1.3rem;">Light the candle, close your eyes, make a wish, and blow it out! ✨</p>
+      
+      <div class="cake-container" style="margin-top: 1rem;">
+        
+        <!-- Reet's Avatar (Hidden initially, slides in to blow) -->
+        <div id="reetAvatar" class="ghibli-avatar-container hidden">
+          <img src="assets/girl blowing candle.png" alt="Reet blowing candle" class="ghibli-avatar-img">
+          <div id="windBlow" class="wind-blow hidden">💨</div>
+        </div>
+
+        <!-- The Restored Simple CSS Cake -->
+        <div class="cake">
+          <div class="candle" id="birthdayCandle">
+            <div class="ghibli-flame" id="candleFlame" style="opacity: 0;"></div>
+          </div>
+          <div class="tier top-tier"></div>
+          <div class="tier bottom-tier">
+            <!-- The slice that cuts out -->
+            <div class="cake-slice" id="cakeSlice">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cake-controls mt-5" style="position: relative; z-index: 50;">
+        <button id="lightCandleBtn" class="primary-btn shadow-btn pulse">Light the Candle 🕯️</button>
+        <button id="blowCandleBtn" class="primary-btn shadow-btn hidden pulse">Blow into Mic 🌬️</button>
+        <br>
+        <button id="fallbackBlowBtn" class="outline-btn text-purple mt-3 hidden" style="font-size: 1rem; border: none; background: transparent; text-decoration: underline; cursor: pointer;">Can't use microphone? Tap here instead!</button>
+        <br>
+        <button id="cutCakeBtn" class="primary-btn shadow-btn hidden pulse mt-4">Cut a Slice 🍰</button>
+      </div>
+
+      <div class="message-wrapper" style="text-align: center; margin-top: -20px; position: relative; z-index: 60;">
+        <div id="cakeMessage" class="finale-cake-msg cursive hidden">🎉 Happy Birthday, Reet! 🎉</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Final Video Message -->
+  <section id="final-video" class="section hidden" style="display: none;">
+    <div class="content text-center" style="max-width: 700px; margin: 0 auto;">
+      <h2 class="cursive text-pink mb-4" style="font-size: 3rem;">One More Thing... 💌</h2>
+      <p class="text-purple mb-5" style="font-size: 1.2rem;">Because some feelings are best seen, not just read.</p>
+      <div class="final-video-frame">
+        <video
+          id="finalMessageVideo"
+          src="assets/With Bindi haayeee - January 31st 2025.mp4"
+          playsinline
+          controls
+          class="final-message-video"
+          style="width:100%; border-radius: 20px; box-shadow: 0 20px 60px rgba(255,105,180,0.3);"
+        ></video>
+      </div>
+      <p class="cursive text-purple mt-5" style="font-size: 1.6rem;">This is you. This will always be you. 💖</p>
+    </div>
+  </section>
+
+  <!-- Candle Focus Overlay for Surprise 4 -->
+  <div class="candle-focus-overlay"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

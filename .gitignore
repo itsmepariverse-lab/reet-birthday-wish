@@ -1,0 +1,7 @@
+backup_v1/
+.gemini/
+*.webp
+*.png.png
+*.jpg.jpg
+node_modules/
+.DS_Store
