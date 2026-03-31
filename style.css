@@ -1206,7 +1206,7 @@ body.cake-focus-mode .candle-focus-overlay {
   .modal-content p { font-size: 1rem !important; line-height: 1.5 !important; margin-bottom: 1.5rem !important; }
   
   .film-reel-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .film-frame { aspect-ratio: 1/1.2; } /* Boxier for mobile layout */
+  .film-frame { aspect-ratio: 9/16; } 
   
   .memory-card { width: 240px; height: 300px; }
   .cake-container { transform: scale(0.7); margin-bottom: -40px; }
@@ -1220,5 +1220,5 @@ body.cake-focus-mode .candle-focus-overlay {
   .gallery-grid { grid-template-columns: 1fr; }
   .gallery-item { width: 200px; height: 240px; margin: 0 auto; }
   .film-reel-grid { grid-template-columns: 1fr; }
-  .film-frame { aspect-ratio: 16/9; }
+  .film-frame { aspect-ratio: 9/16; }
 }

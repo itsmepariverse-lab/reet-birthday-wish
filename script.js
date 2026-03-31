@@ -792,7 +792,7 @@ document.addEventListener('DOMContentLoaded', () => {
       card.style.transform = `rotate(${tiltInit}deg) translateY(${i * 2}px)`;
       card.style.setProperty('--init-tilt', `${tiltInit}deg`);
       card.innerHTML = `
-        <img src="${picsFolder}${file}" alt="Memory" loading="lazy" style="object-position: center 20%;">
+        <img src="${picsFolder}${file}" alt="Memory" loading="lazy" style="object-position: center 20%; ${file === '5d2fa35b96b840c282fa20d7aaf002e2.jpg' ? 'transform: rotate(180deg);' : ''}">
         <div class="memory-card-caption cursive">${captions[i % captions.length]}</div>
       `;
       memoryStackEl.appendChild(card);
