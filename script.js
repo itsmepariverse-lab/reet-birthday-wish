@@ -330,8 +330,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- 7. Grand Finale ---
   const finaleCenterpieceVideo = document.getElementById('finaleCenterpieceVideo');
   const lastVideoMessages = [
-    'last video message/1.mp4',
-    'last video message/2.mp4'
+    'assets/With%20Bindi%20trimmed.mp4',
+    'Last%20video%20message/2.mp4'
   ];
 
   finaleBtn.addEventListener('click', () => {
