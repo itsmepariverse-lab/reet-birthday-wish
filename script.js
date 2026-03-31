@@ -339,8 +339,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (finaleCenterpieceVideo) {
       const randomVid = lastVideoMessages[Math.floor(Math.random() * lastVideoMessages.length)];
       finaleCenterpieceVideo.src = randomVid;
-      finaleCenterpieceVideo.style.objectFit = 'contain';
-      finaleCenterpieceVideo.style.background = '#000';
       finaleCenterpieceVideo.load();
     }
     
@@ -376,16 +374,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- 8. Interactive Peacock Trail & Golden Dust ---
   const createPeacockTrail = (x, y) => {
-    const isFeather = Math.random() > 0.8;
+    const rand = Math.random();
     const el = document.createElement('div');
-    el.className = isFeather ? 'peacock-feather' : 'golden-dust';
-    el.style.left = `${x}px`;
-    el.style.top = `${y}px`;
     
-    if (isFeather) {
+    if (rand < 0.1) {
+      el.className = 'divine-flute';
+      el.textContent = '🪈';
+    } else if (rand < 0.25) {
+      el.className = 'peacock-feather';
       el.textContent = '🪶';
+    } else {
+      el.className = 'golden-dust';
     }
     
+    el.style.left = `${x}px`;
+    el.style.top = `${y}px`;
     document.body.appendChild(el);
     setTimeout(() => el.remove(), 1200);
   };

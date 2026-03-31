@@ -1079,6 +1079,14 @@ body.lights-dimmed::after {
   filter: hue-rotate(120deg) brightness(1.2) drop-shadow(0 0 5px rgba(0,255,255,0.5));
   animation: peacockFloat 1.2s ease-out forwards;
 }
+.divine-flute {
+  position: fixed;
+  pointer-events: none;
+  font-size: 22px;
+  z-index: 10000;
+  filter: sepia(100%) saturate(300%) brightness(1.1) hue-rotate(-10deg) drop-shadow(0 0 8px #ffd700);
+  animation: peacockFloat 1.4s ease-out forwards;
+}
 .golden-dust {
   position: fixed;
   pointer-events: none;
